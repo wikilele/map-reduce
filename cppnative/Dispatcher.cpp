@@ -38,6 +38,10 @@ class Dispatcher{
                 ->getQueue()
                 ->push((*i));
         }
+
+        for (ReduceWorker<TOUT>* rw : *reduceWorkers){
+            rw->getQueue()->push(pair<string,TOUT>(EOS, NULL));
+        }
      
         return ;
     }

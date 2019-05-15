@@ -53,12 +53,12 @@ class SeqMapReduce{
     }
 
     vector<pair<string,TOUT>> mapreduce(vector<TIN> invect){
-        //utimer timer("sequential mapreduce ");
+        utimer timer("sequential mapreduce ");
         return this->reduce(this->map(invect));
     }
 
     vector<pair<string,TOUT>> mapreduce(vector<TIN> invect,const typename  vector<TIN>::iterator begin,const typename  vector<TIN>::iterator end){
-        //utimer timer("sequential mapreduce ");
+        utimer timer("sequential mapreduce ");
         return this->reduce(this->map(invect,begin,end));
     }
 };
