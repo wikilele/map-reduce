@@ -10,10 +10,16 @@
 using namespace std;
 
 pair<string,int> mapfunc(int x){
-    for(int i = 0; i < 10000 ; i ++){
-      int delay;
-      delay ++;
+  // active delay
+    auto start = chrono::high_resolution_clock::now();
+    while (true)  {
+      auto elapsed = chrono::high_resolution_clock::now() - start;
+      long long microseconds = chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
+
+      if (microseconds >= 1000) break;
     }
+    
+
     return pair<string,int>(to_string(x), x + 1);
 }
 

@@ -10,9 +10,12 @@ using namespace ff;
 
 
 pair<string,int> mapfunc(int x){
-    for(int i = 0; i < 10000 ; i ++){
-      int delay;
-      delay ++;
+    auto start = std::chrono::high_resolution_clock::now();
+    while (true)  {
+      auto elapsed = std::chrono::high_resolution_clock::now() - start;
+      long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(elapsed).count();
+
+      if (microseconds >= 1000) break;
     }
     return pair<string,int>(to_string(x), x + 1);
 }
